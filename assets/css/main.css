@@ -245,9 +245,73 @@ p {
 }
 
 .primary-navigation .nav-menu a:hover,
-.primary-navigation .nav-menu .current-menu-item > a {
+.primary-navigation .nav-menu .current-menu-item > a,
+.primary-navigation .nav-menu .current_page_item > a {
 	color: #2A9BA0;
 	background-color: rgba(42, 155, 160, 0.06);
+}
+
+/* wp_page_menu fallback: wrapper div contains a ul */
+.primary-navigation div.nav-menu {
+	display: flex;
+	align-items: center;
+}
+
+.primary-navigation div.nav-menu > ul {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.primary-navigation div.nav-menu > ul li {
+	position: relative;
+}
+
+.primary-navigation div.nav-menu > ul a {
+	display: block;
+	padding: 8px 18px;
+	font-size: 0.95rem;
+	font-weight: 600;
+	color: #4A5568;
+	border-radius: 6px;
+	transition: all 0.2s ease;
+}
+
+.primary-navigation div.nav-menu > ul a:hover,
+.primary-navigation div.nav-menu > ul .current_page_item > a {
+	color: #2A9BA0;
+	background-color: rgba(42, 155, 160, 0.06);
+}
+
+/* wp_page_menu child pages dropdown */
+.primary-navigation div.nav-menu .children {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	min-width: 220px;
+	background: #FFFFFF;
+	border-radius: 8px;
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+	padding: 8px;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(10px);
+	transition: all 0.2s ease;
+	list-style: none;
+}
+
+.primary-navigation div.nav-menu li:hover > .children {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+.primary-navigation div.nav-menu .children a {
+	padding: 10px 14px;
+	font-size: 0.9rem;
 }
 
 /* Dropdown */
@@ -1370,6 +1434,26 @@ body {
 	}
 
 	.primary-navigation .sub-menu {
+		position: static;
+		opacity: 1;
+		visibility: visible;
+		transform: none;
+		box-shadow: none;
+		padding-left: 16px;
+	}
+
+	/* wp_page_menu fallback mobile */
+	.primary-navigation div.nav-menu > ul {
+		flex-direction: column;
+		gap: 4px;
+	}
+
+	.primary-navigation div.nav-menu > ul a {
+		padding: 14px 16px;
+		font-size: 1.05rem;
+	}
+
+	.primary-navigation div.nav-menu .children {
 		position: static;
 		opacity: 1;
 		visibility: visible;
