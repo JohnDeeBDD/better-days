@@ -43,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'theme_location' => 'primary',
 				'menu_class'     => 'nav-menu',
 				'container'      => false,
-				'fallback_cb'    => false,
+				'fallback_cb'    => 'better_days_page_menu_fallback',
 				'depth'          => 2,
 			) );
 			?>

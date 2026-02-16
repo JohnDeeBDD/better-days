@@ -400,6 +400,26 @@ function better_days_customize_register( $wp_customize ) {
 add_action( 'customize_register', 'better_days_customize_register' );
 
 /**
+ * Fallback menu using wp_page_menu for classic WordPress page listing.
+ *
+ * Displays published pages as navigation items when no custom menu
+ * has been assigned to the primary location.
+ *
+ * @param array $args wp_nav_menu arguments.
+ */
+function better_days_page_menu_fallback( $args ) {
+	wp_page_menu( array(
+		'menu_class' => 'nav-menu',
+		'before'     => '',
+		'after'      => '',
+		'link_before' => '',
+		'link_after'  => '',
+		'depth'      => 2,
+		'show_home'  => true,
+	) );
+}
+
+/**
  * Custom excerpt length.
  */
 function better_days_excerpt_length( $length ) {
