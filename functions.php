@@ -1,4 +1,6 @@
 <?php
+die("xxxxxxxxxxxxxxxxxxxxxx");
+
 /**
  * Better Days Theme Functions
  *
