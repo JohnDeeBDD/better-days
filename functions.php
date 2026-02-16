@@ -1,7 +1,5 @@
 <?php
-die("xxxxxxxxxxxxxxxxxxxxxx");
 
-// hello
 
 /**
  * Better Days Theme Functions
