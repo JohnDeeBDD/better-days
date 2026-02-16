@@ -144,6 +144,88 @@
 		} );
 	}
 
+
+	/**
+	 * Home Page Slider
+	 */
+	function initHomeSlider() {
+		var slider = document.querySelector( '[data-home-slider]' );
+		if ( ! slider ) {
+			return;
+		}
+
+		var slides = slider.querySelectorAll( '.home-slider__slide' );
+		var dots = document.querySelectorAll( '[data-slider-dot]' );
+		var prevButton = slider.querySelector( '[data-slider-prev]' );
+		var nextButton = slider.querySelector( '[data-slider-next]' );
+		var currentIndex = 0;
+		var intervalId;
+
+		if ( ! slides.length ) {
+			return;
+		}
+
+		function showSlide( index ) {
+			slides.forEach( function( slide, slideIndex ) {
+				slide.classList.toggle( 'is-active', slideIndex === index );
+			} );
+
+			dots.forEach( function( dot, dotIndex ) {
+				dot.classList.toggle( 'is-active', dotIndex === index );
+			} );
+
+			currentIndex = index;
+		}
+
+		function showNextSlide() {
+			var nextIndex = ( currentIndex + 1 ) % slides.length;
+			showSlide( nextIndex );
+		}
+
+		function startAutoRotate() {
+			intervalId = window.setInterval( showNextSlide, 5000 );
+		}
+
+		function restartAutoRotate() {
+			window.clearInterval( intervalId );
+			startAutoRotate();
+		}
+
+		if ( prevButton ) {
+			prevButton.addEventListener( 'click', function() {
+				var previousIndex = ( currentIndex - 1 + slides.length ) % slides.length;
+				showSlide( previousIndex );
+				restartAutoRotate();
+			} );
+		}
+
+		if ( nextButton ) {
+			nextButton.addEventListener( 'click', function() {
+				showNextSlide();
+				restartAutoRotate();
+			} );
+		}
+
+		dots.forEach( function( dot ) {
+			dot.addEventListener( 'click', function() {
+				var selectedIndex = Number( dot.getAttribute( 'data-slider-dot' ) );
+				showSlide( selectedIndex );
+				restartAutoRotate();
+			} );
+		} );
+
+		slider.addEventListener( 'mouseenter', function() {
+			window.clearInterval( intervalId );
+		} );
+
+		slider.addEventListener( 'mouseleave', function() {
+			startAutoRotate();
+		} );
+
+		showSlide( 0 );
+		startAutoRotate();
+	}
+
 	/**
 	 * Initialize everything on DOM ready
 	 */
@@ -152,6 +234,7 @@
 		initMobileMenu();
 		initScrollAnimations();
 		initSmoothScroll();
+		initHomeSlider();
 	} );
 
 } )();
