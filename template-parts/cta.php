@@ -5,12 +5,14 @@
  * @package Better_Days
  */
 
-$heading  = get_theme_mod( 'better_days_cta_heading', "Let's Start a Conversation" );
-$text     = get_theme_mod( 'better_days_cta_text', 'Ready to take your business to the next level? We would love to hear from you.' );
-$btn_text = get_theme_mod( 'better_days_cta_button_text', 'Contact Us' );
-$btn_url  = get_theme_mod( 'better_days_cta_button_url', '/contact' );
-$email    = get_theme_mod( 'better_days_email' );
-$phone    = get_theme_mod( 'better_days_phone' );
+$front_page_defaults = better_days_front_page_defaults();
+
+$heading  = get_theme_mod( 'better_days_cta_heading', $front_page_defaults['cta']['heading'] );
+$text     = get_theme_mod( 'better_days_cta_text', $front_page_defaults['cta']['text'] );
+$btn_text = get_theme_mod( 'better_days_cta_button_text', $front_page_defaults['cta']['button_text'] );
+$btn_url  = get_theme_mod( 'better_days_cta_button_url', $front_page_defaults['cta']['button_url'] );
+$email    = get_theme_mod( 'better_days_email', $front_page_defaults['cta']['email'] );
+$phone    = get_theme_mod( 'better_days_phone', $front_page_defaults['cta']['phone'] );
 ?>
 
 <section class="cta-section" id="contact">

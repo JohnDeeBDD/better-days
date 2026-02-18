@@ -13,6 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define( 'BETTER_DAYS_VERSION', '1.0.0' );
 
+require_once get_template_directory() . '/inc/front-page-defaults.php';
+
 /**
  * Theme setup.
  */
@@ -138,6 +140,7 @@ add_action( 'widgets_init', 'better_days_widgets_init' );
  * Customizer settings.
  */
 function better_days_customize_register( $wp_customize ) {
+	$front_page_defaults = better_days_front_page_defaults();
 
 	// Hero Section
 	$wp_customize->add_section( 'better_days_hero', array(
@@ -146,7 +149,7 @@ function better_days_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'better_days_hero_heading', array(
-		'default'           => 'We Help Your Business Thrive',
+		'default'           => $front_page_defaults['hero']['heading'],
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
 	$wp_customize->add_control( 'better_days_hero_heading', array(
@@ -156,7 +159,7 @@ function better_days_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'better_days_hero_text', array(
-		'default'           => 'From strategy to execution, we partner with you to turn your best ideas into measurable results with proven systems that support sustainable growth.',
+		'default'           => $front_page_defaults['hero']['text'],
 		'sanitize_callback' => 'sanitize_textarea_field',
 	) );
 	$wp_customize->add_control( 'better_days_hero_text', array(
@@ -166,7 +169,7 @@ function better_days_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'better_days_hero_button_text', array(
-		'default'           => 'Get Started',
+		'default'           => $front_page_defaults['hero']['button_text'],
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
 	$wp_customize->add_control( 'better_days_hero_button_text', array(
@@ -176,7 +179,7 @@ function better_days_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'better_days_hero_button_url', array(
-		'default'           => '#contact',
+		'default'           => $front_page_defaults['hero']['button_url'],
 		'sanitize_callback' => 'esc_url_raw',
 	) );
 	$wp_customize->add_control( 'better_days_hero_button_url', array(
@@ -186,7 +189,7 @@ function better_days_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'better_days_hero_image', array(
-		'default'           => '',
+		'default'           => $front_page_defaults['hero']['image'],
 		'sanitize_callback' => 'esc_url_raw',
 	) );
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'better_days_hero_image', array(
@@ -201,7 +204,7 @@ function better_days_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'better_days_services_heading', array(
-		'default'           => 'Our Services',
+		'default'           => $front_page_defaults['services']['heading'],
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
 	$wp_customize->add_control( 'better_days_services_heading', array(
@@ -211,7 +214,7 @@ function better_days_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'better_days_services_subheading', array(
-		'default'           => 'Comprehensive solutions tailored to your business needs.',
+		'default'           => $front_page_defaults['services']['subheading'],
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
 	$wp_customize->add_control( 'better_days_services_subheading', array(
@@ -221,8 +224,10 @@ function better_days_customize_register( $wp_customize ) {
 	) );
 
 	for ( $i = 1; $i <= 6; $i++ ) {
+		$default_service = $front_page_defaults['services']['items'][ $i - 1 ];
+
 		$wp_customize->add_setting( "better_days_service_{$i}_title", array(
-			'default'           => '',
+			'default'           => $default_service['title'],
 			'sanitize_callback' => 'sanitize_text_field',
 		) );
 		$wp_customize->add_control( "better_days_service_{$i}_title", array(
@@ -232,7 +237,7 @@ function better_days_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_setting( "better_days_service_{$i}_desc", array(
-			'default'           => '',
+			'default'           => $default_service['desc'],
 			'sanitize_callback' => 'sanitize_textarea_field',
 		) );
 		$wp_customize->add_control( "better_days_service_{$i}_desc", array(
@@ -242,7 +247,7 @@ function better_days_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_setting( "better_days_service_{$i}_icon", array(
-			'default'           => '',
+			'default'           => $default_service['icon'],
 			'sanitize_callback' => 'sanitize_text_field',
 		) );
 		$wp_customize->add_control( "better_days_service_{$i}_icon", array(
@@ -260,7 +265,7 @@ function better_days_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'better_days_testimonials_heading', array(
-		'default'           => 'What Our Clients Say',
+		'default'           => $front_page_defaults['testimonials']['heading'],
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
 	$wp_customize->add_control( 'better_days_testimonials_heading', array(
@@ -270,8 +275,10 @@ function better_days_customize_register( $wp_customize ) {
 	) );
 
 	for ( $i = 1; $i <= 3; $i++ ) {
+		$default_testimonial = $front_page_defaults['testimonials']['items'][ $i - 1 ];
+
 		$wp_customize->add_setting( "better_days_testimonial_{$i}_text", array(
-			'default'           => '',
+			'default'           => $default_testimonial['text'],
 			'sanitize_callback' => 'sanitize_textarea_field',
 		) );
 		$wp_customize->add_control( "better_days_testimonial_{$i}_text", array(
@@ -281,7 +288,7 @@ function better_days_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_setting( "better_days_testimonial_{$i}_name", array(
-			'default'           => '',
+			'default'           => $default_testimonial['name'],
 			'sanitize_callback' => 'sanitize_text_field',
 		) );
 		$wp_customize->add_control( "better_days_testimonial_{$i}_name", array(
@@ -291,7 +298,7 @@ function better_days_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_setting( "better_days_testimonial_{$i}_role", array(
-			'default'           => '',
+			'default'           => $default_testimonial['role'],
 			'sanitize_callback' => 'sanitize_text_field',
 		) );
 		$wp_customize->add_control( "better_days_testimonial_{$i}_role", array(
@@ -308,7 +315,7 @@ function better_days_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'better_days_cta_heading', array(
-		'default'           => "Let's Start a Conversation",
+		'default'           => $front_page_defaults['cta']['heading'],
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
 	$wp_customize->add_control( 'better_days_cta_heading', array(
@@ -318,7 +325,7 @@ function better_days_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'better_days_cta_text', array(
-		'default'           => 'Ready to take your business to the next level? We would love to hear from you.',
+		'default'           => $front_page_defaults['cta']['text'],
 		'sanitize_callback' => 'sanitize_textarea_field',
 	) );
 	$wp_customize->add_control( 'better_days_cta_text', array(
@@ -328,7 +335,7 @@ function better_days_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'better_days_cta_button_text', array(
-		'default'           => 'Contact Us',
+		'default'           => $front_page_defaults['cta']['button_text'],
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
 	$wp_customize->add_control( 'better_days_cta_button_text', array(
@@ -338,7 +345,7 @@ function better_days_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'better_days_cta_button_url', array(
-		'default'           => '/contact',
+		'default'           => $front_page_defaults['cta']['button_url'],
 		'sanitize_callback' => 'esc_url_raw',
 	) );
 	$wp_customize->add_control( 'better_days_cta_button_url', array(
@@ -348,7 +355,7 @@ function better_days_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'better_days_email', array(
-		'default'           => '',
+		'default'           => $front_page_defaults['cta']['email'],
 		'sanitize_callback' => 'sanitize_email',
 	) );
 	$wp_customize->add_control( 'better_days_email', array(
@@ -358,7 +365,7 @@ function better_days_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'better_days_phone', array(
-		'default'           => '',
+		'default'           => $front_page_defaults['cta']['phone'],
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
 	$wp_customize->add_control( 'better_days_phone', array(
@@ -374,7 +381,7 @@ function better_days_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'better_days_footer_text', array(
-		'default'           => '',
+		'default'           => $front_page_defaults['footer']['text'],
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
 	$wp_customize->add_control( 'better_days_footer_text', array(

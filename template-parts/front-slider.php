@@ -8,24 +8,24 @@
 $slides = array(
 	array(
 		'image' => get_template_directory_uri() . '/assets/images/slider-1.svg',
-		'alt'   => __( 'Team planning strategy around a table', 'better-days' ),
+		'alt'   => __( 'Compassionate consultant meeting with a family about senior care options', 'better-days' ),
 	),
 	array(
 		'image' => get_template_directory_uri() . '/assets/images/slider-2.svg',
-		'alt'   => __( 'Business owner reviewing project notes', 'better-days' ),
+		'alt'   => __( 'Senior care coordinator reviewing onboarding paperwork', 'better-days' ),
 	),
 	array(
 		'image' => get_template_directory_uri() . '/assets/images/slider-3.svg',
-		'alt'   => __( 'Client conversation in a modern office', 'better-days' ),
+		'alt'   => __( 'Family receiving retirement home placement guidance', 'better-days' ),
 	),
 	array(
 		'image' => get_template_directory_uri() . '/assets/images/slider-4.svg',
-		'alt'   => __( 'Progress dashboard with growth indicators', 'better-days' ),
+		'alt'   => __( 'Comfortable residence supporting around-the-clock nursing care', 'better-days' ),
 	),
 );
 ?>
 
-<section class="home-slider" aria-label="<?php esc_attr_e( 'Featured highlights', 'better-days' ); ?>">
+<section class="home-slider" aria-label="<?php esc_attr_e( 'Better Days for Seniors highlights', 'better-days' ); ?>">
 	<div class="container">
 		<div class="home-slider__frame" data-home-slider>
 			<div class="home-slider__track">

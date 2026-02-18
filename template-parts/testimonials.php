@@ -5,25 +5,10 @@
  * @package Better_Days
  */
 
-$heading = get_theme_mod( 'better_days_testimonials_heading', 'What Our Clients Say' );
+$front_page_defaults = better_days_front_page_defaults();
 
-$default_testimonials = array(
-	array(
-		'text' => 'Their strategic approach transformed the way we operate. The team brought clarity to our planning process and helped us achieve goals we thought were years away.',
-		'name' => 'Sarah Johnson',
-		'role' => 'CEO, Growth Partners Inc.',
-	),
-	array(
-		'text' => 'Working with them was a turning point for our organization. Their collaborative style and deep expertise made the entire process smooth and incredibly productive.',
-		'name' => 'Michael Chen',
-		'role' => 'Director of Operations',
-	),
-	array(
-		'text' => 'They took the time to truly understand our business before offering solutions. The results speak for themselves — our revenue grew 40% in the first year.',
-		'name' => 'Lisa Martinez',
-		'role' => 'Founder, Bright Path Services',
-	),
-);
+$heading              = get_theme_mod( 'better_days_testimonials_heading', $front_page_defaults['testimonials']['heading'] );
+$default_testimonials = $front_page_defaults['testimonials']['items'];
 
 $testimonials = array();
 for ( $i = 1; $i <= 3; $i++ ) {
