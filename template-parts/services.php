@@ -5,41 +5,11 @@
  * @package Better_Days
  */
 
-$heading    = get_theme_mod( 'better_days_services_heading', 'Our Services' );
-$subheading = get_theme_mod( 'better_days_services_subheading', 'Comprehensive solutions tailored to your business needs.' );
+$front_page_defaults = better_days_front_page_defaults();
 
-$default_services = array(
-	array(
-		'title' => 'Strategic Planning',
-		'desc'  => 'Develop clear roadmaps that align your team and resources toward achieving your most important business goals.',
-		'icon'  => 'strategy',
-	),
-	array(
-		'title' => 'Business Advisory',
-		'desc'  => 'Expert guidance on operational efficiency, financial management, and organizational growth strategies.',
-		'icon'  => 'planning',
-	),
-	array(
-		'title' => 'Bookkeeping & Finance',
-		'desc'  => 'Reliable financial systems that bring clarity and confidence to your business decisions.',
-		'icon'  => 'finance',
-	),
-	array(
-		'title' => 'Market Research',
-		'desc'  => 'Data-driven insights to help you understand your market, customers, and competitive landscape.',
-		'icon'  => 'research',
-	),
-	array(
-		'title' => 'HR & Team Building',
-		'desc'  => 'Build and support high-performing teams with effective human resource practices and policies.',
-		'icon'  => 'group',
-	),
-	array(
-		'title' => 'Project Management',
-		'desc'  => 'Turn ideas into reality with structured, proven project management methodologies.',
-		'icon'  => 'project',
-	),
-);
+$heading          = get_theme_mod( 'better_days_services_heading', $front_page_defaults['services']['heading'] );
+$subheading       = get_theme_mod( 'better_days_services_subheading', $front_page_defaults['services']['subheading'] );
+$default_services = $front_page_defaults['services']['items'];
 
 $services = array();
 for ( $i = 1; $i <= 6; $i++ ) {

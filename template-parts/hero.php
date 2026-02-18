@@ -5,11 +5,13 @@
  * @package Better_Days
  */
 
-$heading    = get_theme_mod( 'better_days_hero_heading', 'We Help Your Business Thrive' );
-$text       = get_theme_mod( 'better_days_hero_text', 'From strategy to execution, we partner with you to turn your best ideas into measurable results with proven systems that support sustainable growth.' );
-$btn_text   = get_theme_mod( 'better_days_hero_button_text', 'Get Started' );
-$btn_url    = get_theme_mod( 'better_days_hero_button_url', '#contact' );
-$hero_image = get_theme_mod( 'better_days_hero_image', '' );
+$front_page_defaults = better_days_front_page_defaults();
+
+$heading    = get_theme_mod( 'better_days_hero_heading', $front_page_defaults['hero']['heading'] );
+$text       = get_theme_mod( 'better_days_hero_text', $front_page_defaults['hero']['text'] );
+$btn_text   = get_theme_mod( 'better_days_hero_button_text', $front_page_defaults['hero']['button_text'] );
+$btn_url    = get_theme_mod( 'better_days_hero_button_url', $front_page_defaults['hero']['button_url'] );
+$hero_image = get_theme_mod( 'better_days_hero_image', $front_page_defaults['hero']['image'] );
 
 $style = '';
 if ( $hero_image ) {
