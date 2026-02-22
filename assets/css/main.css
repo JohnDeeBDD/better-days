@@ -392,7 +392,7 @@ body {
 	display: flex;
 	align-items: center;
 	min-height: 75vh;
-	background: linear-gradient(135deg, #212934 0%, #2A9BA0 50%, #65BC7B 100%);
+	background: linear-gradient(125deg, #e40303 0%, #ff8c00 18%, #ffed00 35%, #008026 52%, #004dff 69%, #750787 86%, #212934 100%);
 	background-size: cover;
 	background-position: center;
 	overflow: hidden;
@@ -401,7 +401,7 @@ body {
 .hero-overlay {
 	position: absolute;
 	inset: 0;
-	background: linear-gradient(135deg, rgba(33, 41, 52, 0.85) 0%, rgba(42, 155, 160, 0.6) 100%);
+	background: linear-gradient(135deg, rgba(18, 22, 31, 0.72) 0%, rgba(18, 22, 31, 0.56) 45%, rgba(18, 22, 31, 0.76) 100%);
 	pointer-events: none;
 }
 
@@ -413,6 +413,45 @@ body {
 
 .hero-content {
 	max-width: 680px;
+}
+
+.hero-pride-banner {
+	display: inline-flex;
+	align-items: center;
+	gap: 0;
+	width: 210px;
+	height: 26px;
+	border-radius: 999px;
+	overflow: hidden;
+	border: 2px solid rgba(255, 255, 255, 0.45);
+	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+	margin-bottom: 18px;
+}
+
+.hero-pride-stripe {
+	flex: 1;
+	height: 100%;
+}
+
+.stripe-red { background-color: #e40303; }
+.stripe-orange { background-color: #ff8c00; }
+.stripe-yellow { background-color: #ffed00; }
+.stripe-green { background-color: #008026; }
+.stripe-blue { background-color: #2446ff; }
+.stripe-violet { background-color: #750787; }
+
+.hero-pride-tagline {
+	display: inline-block;
+	font-size: 0.9rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: #ffffff;
+	background-color: rgba(18, 22, 31, 0.45);
+	border: 1px solid rgba(255, 255, 255, 0.28);
+	border-radius: 999px;
+	padding: 6px 14px;
+	margin-bottom: 18px;
 }
 
 .hero-heading {
