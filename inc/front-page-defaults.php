@@ -17,9 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 function better_days_front_page_defaults() {
 	return array(
 		'hero'         => array(
-			'heading'     => 'Better Days for Seniors',
-			'text'        => 'Guiding families through full-time care, around-the-clock nursing, and retirement home placement with clarity, compassion, and confidence.',
-			'button_text' => 'Book a Care Consultation',
+			'heading'     => 'Proudly LGBTQ+ Inclusive Consulting',
+			'text'        => 'Strategic guidance for LGBTQ+ people, couples, and organizations seeking affirming support, bold growth, and values-driven outcomes.',
+			'button_text' => 'Book an Inclusive Consultation',
 			'button_url'  => '#contact',
 			'image'       => '',
 		),
