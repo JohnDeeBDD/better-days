@@ -7,18 +7,23 @@
 
 $slides = array(
 	array(
-		'image' => get_template_directory_uri() . '/assets/images/slider-1.svg',
-		'alt'   => __( 'Compassionate consultant meeting with a family about senior care options', 'better-days' ),
+		'type'        => 'linkedin',
+		'url'         => 'https://www.linkedin.com/in/trish-karlinski-0327b5243',
+		'title'       => __( "Connect with Trish Karolynski on LinkedIn", 'better-days' ),
+		'description' => __( 'Visit Trish\'s LinkedIn profile to learn more about her background and connect directly.', 'better-days' ),
 	),
 	array(
+		'type'  => 'image',
 		'image' => get_template_directory_uri() . '/assets/images/slider-2.svg',
 		'alt'   => __( 'Senior care coordinator reviewing onboarding paperwork', 'better-days' ),
 	),
 	array(
+		'type'  => 'image',
 		'image' => get_template_directory_uri() . '/assets/images/slider-3.svg',
 		'alt'   => __( 'Family receiving retirement home placement guidance', 'better-days' ),
 	),
 	array(
+		'type'  => 'image',
 		'image' => get_template_directory_uri() . '/assets/images/slider-4.svg',
 		'alt'   => __( 'Comfortable residence supporting around-the-clock nursing care', 'better-days' ),
 	),
@@ -31,7 +36,16 @@ $slides = array(
 			<div class="home-slider__track">
 				<?php foreach ( $slides as $index => $slide ) : ?>
 					<figure class="home-slider__slide<?php echo 0 === $index ? ' is-active' : ''; ?>" data-slide-index="<?php echo esc_attr( $index ); ?>">
-						<img src="<?php echo esc_url( $slide['image'] ); ?>" alt="<?php echo esc_attr( $slide['alt'] ); ?>" loading="lazy" />
+						<?php if ( isset( $slide['type'] ) && 'linkedin' === $slide['type'] ) : ?>
+							<a class="home-slider__linkedin" href="<?php echo esc_url( $slide['url'] ); ?>" target="_blank" rel="noopener noreferrer">
+								<span class="home-slider__linkedin-label"><?php esc_html_e( 'LinkedIn', 'better-days' ); ?></span>
+								<h3><?php echo esc_html( $slide['title'] ); ?></h3>
+								<p><?php echo esc_html( $slide['description'] ); ?></p>
+								<span class="home-slider__linkedin-cta"><?php esc_html_e( 'View Profile', 'better-days' ); ?></span>
+							</a>
+						<?php else : ?>
+							<img src="<?php echo esc_url( $slide['image'] ); ?>" alt="<?php echo esc_attr( $slide['alt'] ); ?>" loading="lazy" />
+						<?php endif; ?>
 					</figure>
 				<?php endforeach; ?>
 			</div>
