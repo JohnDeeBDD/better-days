@@ -22,24 +22,35 @@ if ( $hero_image ) {
 <section class="hero-section"<?php echo $style; ?>>
 	<div class="hero-overlay"></div>
 	<div class="container hero-inner">
-		<div class="hero-content animate-fade-up">
-			<div class="hero-pride-banner" aria-hidden="true">
-				<span class="hero-pride-stripe stripe-red"></span>
-				<span class="hero-pride-stripe stripe-orange"></span>
-				<span class="hero-pride-stripe stripe-yellow"></span>
-				<span class="hero-pride-stripe stripe-green"></span>
-				<span class="hero-pride-stripe stripe-blue"></span>
-				<span class="hero-pride-stripe stripe-violet"></span>
+		<div class="hero-columns">
+			<div class="hero-content animate-fade-up">
+				<div class="hero-pride-banner" aria-hidden="true">
+					<span class="hero-pride-stripe stripe-red"></span>
+					<span class="hero-pride-stripe stripe-orange"></span>
+					<span class="hero-pride-stripe stripe-yellow"></span>
+					<span class="hero-pride-stripe stripe-green"></span>
+					<span class="hero-pride-stripe stripe-blue"></span>
+					<span class="hero-pride-stripe stripe-violet"></span>
+				</div>
+				<p class="hero-pride-tagline"><?php esc_html_e( 'LGBTQ+ affirming consulting and community-first support', 'better-days' ); ?></p>
+				<h1 class="hero-heading"><?php echo esc_html( $heading ); ?></h1>
+				<p class="hero-text"><?php echo esc_html( $text ); ?></p>
+				<?php if ( $btn_text ) : ?>
+					<a href="<?php echo esc_url( $btn_url ); ?>" class="btn btn-primary btn-lg">
+						<?php echo esc_html( $btn_text ); ?>
+						<span class="btn-arrow">&rarr;</span>
+					</a>
+				<?php endif; ?>
 			</div>
-			<p class="hero-pride-tagline"><?php esc_html_e( 'LGBTQ+ affirming consulting and community-first support', 'better-days' ); ?></p>
-			<h1 class="hero-heading"><?php echo esc_html( $heading ); ?></h1>
-			<p class="hero-text"><?php echo esc_html( $text ); ?></p>
-			<?php if ( $btn_text ) : ?>
-				<a href="<?php echo esc_url( $btn_url ); ?>" class="btn btn-primary btn-lg">
-					<?php echo esc_html( $btn_text ); ?>
-					<span class="btn-arrow">&rarr;</span>
-				</a>
-			<?php endif; ?>
+			<div class="hero-headshot animate-fade-up">
+				<div class="hero-headshot-frame">
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/trish_karlinski.jpeg' ); ?>"
+						 alt="<?php esc_attr_e( 'Trish Karlinski — Adult Services Consultant', 'better-days' ); ?>"
+						 width="420"
+						 height="420"
+						 loading="eager" />
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
