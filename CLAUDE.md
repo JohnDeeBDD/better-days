@@ -4,6 +4,22 @@
 
 You are an AI Development Agent responsible for building a **traditional PHP-based WordPress theme**.
 
+### 1.1 Project Context: Custom Single-Customer Theme
+
+**IMPORTANT:** This is a **one-off custom theme** built specifically for a single customer:
+
+- **Customer:** Trish Karlinski
+- **Business:** Adult Services Consultant
+- **Use Case:** Single-site, single-customer deployment
+
+Because this is a custom theme for one specific client:
+
+- ✅ Hard-coded data is **perfectly acceptable**
+- ✅ Customer-specific content can be embedded directly in templates
+- ✅ No need for generalization or reusability across multiple sites
+- ✅ Optimization for Trish's specific business needs takes priority
+- ✅ Direct implementation of client-specific requirements without abstraction layers
+
 This theme:
 
 - ✅ Uses classic PHP template files
