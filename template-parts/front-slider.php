@@ -9,7 +9,7 @@ $slides = array(
 	array(
 		'type'        => 'linkedin',
 		'url'         => 'https://www.linkedin.com/in/trish-karlinski-0327b5243',
-		'title'       => __( "Connect with Trish Karolynski on LinkedIn", 'better-days' ),
+		'title'       => __( "Connect with Trish Karlinski on LinkedIn", 'better-days' ),
 		'description' => __( 'Visit Trish\'s LinkedIn profile to learn more about her background and connect directly.', 'better-days' ),
 	),
 	array(
@@ -38,7 +38,7 @@ $slides = array(
 					<figure class="home-slider__slide<?php echo 0 === $index ? ' is-active' : ''; ?>" data-slide-index="<?php echo esc_attr( $index ); ?>">
 						<?php if ( isset( $slide['type'] ) && 'linkedin' === $slide['type'] ) : ?>
 							<a class="home-slider__linkedin" href="<?php echo esc_url( $slide['url'] ); ?>" target="_blank" rel="noopener noreferrer">
-								<span class="home-slider__linkedin-label"><?php esc_html_e( 'LinkedIn', 'better-days' ); ?></span>
+								<img class="home-slider__linkedin-logo" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/LinkedIn_2021.svg' ); ?>" alt="<?php esc_attr_e( 'LinkedIn', 'better-days' ); ?>" />
 								<h3><?php echo esc_html( $slide['title'] ); ?></h3>
 								<p><?php echo esc_html( $slide['description'] ); ?></p>
 								<span class="home-slider__linkedin-cta"><?php esc_html_e( 'View Profile', 'better-days' ); ?></span>
