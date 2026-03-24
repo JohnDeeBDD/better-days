@@ -13,9 +13,10 @@ $slides = array(
 		'description' => __( 'Visit Trish\'s LinkedIn profile to learn more about her background and connect directly.', 'better-days' ),
 	),
 	array(
-		'type'  => 'image',
-		'image' => get_template_directory_uri() . '/assets/images/slider-2.svg',
-		'alt'   => __( 'Senior care coordinator reviewing onboarding paperwork', 'better-days' ),
+		'type'        => 'facebook',
+		'url'         => 'https://www.facebook.com/',
+		'title'       => __( 'Follow Trish Karolinski on Facebook', 'better-days' ),
+		'description' => __( 'Visit Trish\'s Facebook page for updates, insights, and helpful senior care resources.', 'better-days' ),
 	),
 	array(
 		'type'  => 'image',
@@ -42,6 +43,13 @@ $slides = array(
 								<h3><?php echo esc_html( $slide['title'] ); ?></h3>
 								<p><?php echo esc_html( $slide['description'] ); ?></p>
 								<span class="home-slider__linkedin-cta"><?php esc_html_e( 'View Profile', 'better-days' ); ?></span>
+							</a>
+						<?php elseif ( isset( $slide['type'] ) && 'facebook' === $slide['type'] ) : ?>
+							<a class="home-slider__facebook" href="<?php echo esc_url( $slide['url'] ); ?>" target="_blank" rel="noopener noreferrer">
+								<img class="home-slider__facebook-logo" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Facebook.png' ); ?>" alt="<?php esc_attr_e( 'Facebook', 'better-days' ); ?>" />
+								<h3><?php echo esc_html( $slide['title'] ); ?></h3>
+								<p><?php echo esc_html( $slide['description'] ); ?></p>
+								<span class="home-slider__facebook-cta"><?php esc_html_e( 'Visit Facebook', 'better-days' ); ?></span>
 							</a>
 						<?php else : ?>
 							<img src="<?php echo esc_url( $slide['image'] ); ?>" alt="<?php echo esc_attr( $slide['alt'] ); ?>" loading="lazy" />
