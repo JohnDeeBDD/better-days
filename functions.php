@@ -7,6 +7,7 @@
  * @package Better_Days
  */
 
+die("webhook active!");
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
