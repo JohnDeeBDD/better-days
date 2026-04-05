@@ -6,7 +6,7 @@
  *
  * @package Better_Days
  */
-
+die("This file should not be accessed directly.");
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
