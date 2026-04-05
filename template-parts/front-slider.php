@@ -15,7 +15,7 @@ $slides = array(
 	array(
 		'type'        => 'facebook',
 		'url'         => 'https://www.facebook.com/',
-		'title'       => __( 'Follow Trish Karolinski on Facebook', 'better-days' ),
+		'title'       => __( 'Follow Trish Karlinski on Facebook', 'better-days' ),
 		'description' => __( 'Visit Trish\'s Facebook page for updates, insights, and helpful senior care resources.', 'better-days' ),
 	),
 	array(
