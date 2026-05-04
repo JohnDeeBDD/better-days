@@ -469,16 +469,11 @@ body {
 .stripe-violet { background-color: #750787; }
 
 .hero-pride-tagline {
-	display: inline-block;
 	font-size: 0.9rem;
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 0.06em;
 	color: #ffffff;
-	background-color: rgba(18, 22, 31, 0.45);
-	border: 1px solid rgba(255, 255, 255, 0.28);
-	border-radius: 999px;
-	padding: 6px 14px;
 	margin-bottom: 18px;
 }
 
