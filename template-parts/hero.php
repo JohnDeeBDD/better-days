@@ -24,14 +24,6 @@ if ( $hero_image ) {
 	<div class="container hero-inner">
 		<div class="hero-columns">
 			<div class="hero-content animate-fade-up">
-				<div class="hero-pride-banner" aria-hidden="true">
-					<span class="hero-pride-stripe stripe-red"></span>
-					<span class="hero-pride-stripe stripe-orange"></span>
-					<span class="hero-pride-stripe stripe-yellow"></span>
-					<span class="hero-pride-stripe stripe-green"></span>
-					<span class="hero-pride-stripe stripe-blue"></span>
-					<span class="hero-pride-stripe stripe-violet"></span>
-				</div>
 				<h1 class="hero-heading"><?php echo esc_html( $heading ); ?></h1>
 				<p class="hero-text"><?php echo esc_html( $text ); ?></p>
 				<?php if ( $btn_text ) : ?>
