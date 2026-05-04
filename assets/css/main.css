@@ -209,6 +209,30 @@ p {
 	border-bottom: 1px solid transparent;
 }
 
+.site-header::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 4px;
+	pointer-events: none;
+	background-image: linear-gradient(
+		to right,
+		#000000 0,                #000000 9.0909%,
+		#784F17 9.0909%,          #784F17 18.1818%,
+		#5BCEFA 18.1818%,         #5BCEFA 27.2727%,
+		#F5A9B8 27.2727%,         #F5A9B8 36.3636%,
+		#FFFFFF 36.3636%,         #FFFFFF 45.4545%,
+		#E40303 45.4545%,         #E40303 54.5454%,
+		#FF8C00 54.5454%,         #FF8C00 63.6363%,
+		#FFED00 63.6363%,         #FFED00 72.7272%,
+		#008026 72.7272%,         #008026 81.8181%,
+		#004DFF 81.8181%,         #004DFF 90.9090%,
+		#750787 90.9090%,         #750787 100%
+	);
+}
+
 .site-header.scrolled {
 	box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
 	border-bottom-color: var(--bd-nav-border);
