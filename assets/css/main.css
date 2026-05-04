@@ -2,17 +2,39 @@
    Better Days Theme - Main Stylesheet
    A professional business theme blending modern consulting aesthetics.
 
-   Color Palette (averaged from reference sites):
-   - Primary:     #2A9BA0 (teal-blue)
-   - Primary Dark: #1F7F84
-   - Accent:      #65BC7B (green)
-   - Dark:        #212934 (charcoal)
-   - Text:        #4A5568
-   - Light Text:  #718096
-   - Light BG:    #F2F3F5
-   - White:       #FFFFFF
-   - Border:      #E2E8F0
+   Default color palette (overridable per scheme via color-schemes.css):
+   see :root below.
    ========================================================================== */
+
+:root {
+	/* Brand colors */
+	--bd-primary:        #2A9BA0;
+	--bd-primary-dark:   #1F7F84;
+	--bd-primary-rgb:    42, 155, 160;
+	--bd-accent:         #65BC7B;
+	--bd-dark:           #212934;
+	--bd-dark-rgb:       33, 41, 52;
+
+	/* Neutral palette (typically stable across schemes) */
+	--bd-text:           #4A5568;
+	--bd-text-light:     #718096;
+	--bd-bg:             #FFFFFF;
+	--bd-bg-soft:        #F2F3F5;
+	--bd-border:         #E2E8F0;
+
+	/* Header / navigation surface */
+	--bd-nav-bg:         rgba(255, 255, 255, 0.97);
+	--bd-nav-border:     #E2E8F0;
+	--bd-nav-text:       #4A5568;
+	--bd-nav-title:      #212934;
+	--bd-nav-hover-bg:   rgba(42, 155, 160, 0.06);
+	--bd-nav-hover-text: #2A9BA0;
+	--bd-hamburger:      #212934;
+
+	/* Hero & CTA gradient endpoints */
+	--bd-cta-from:       #212934;
+	--bd-cta-to:         #2A9BA0;
+}
 
 /* ---------- Reset & Base ---------- */
 
@@ -46,13 +68,13 @@ img {
 }
 
 a {
-	color: #2A9BA0;
+	color: var(--bd-primary);
 	text-decoration: none;
 	transition: color 0.3s ease;
 }
 
 a:hover {
-	color: #1F7F84;
+	color: var(--bd-primary-dark);
 }
 
 ul,
@@ -120,22 +142,22 @@ p {
 }
 
 .btn-primary {
-	background-color: #2A9BA0;
+	background-color: var(--bd-primary);
 	color: #FFFFFF;
-	border-color: #2A9BA0;
+	border-color: var(--bd-primary);
 }
 
 .btn-primary:hover {
-	background-color: #1F7F84;
-	border-color: #1F7F84;
+	background-color: var(--bd-primary-dark);
+	border-color: var(--bd-primary-dark);
 	color: #FFFFFF;
 	transform: translateY(-1px);
-	box-shadow: 0 4px 12px rgba(42, 155, 160, 0.35);
+	box-shadow: 0 4px 12px rgba(var(--bd-primary-rgb), 0.35);
 }
 
 .btn-white {
 	background-color: #FFFFFF;
-	color: #2A9BA0;
+	color: var(--bd-primary);
 	border-color: #FFFFFF;
 }
 
@@ -148,12 +170,12 @@ p {
 
 .btn-outline {
 	background-color: transparent;
-	color: #2A9BA0;
-	border-color: #2A9BA0;
+	color: var(--bd-primary);
+	border-color: var(--bd-primary);
 }
 
 .btn-outline:hover {
-	background-color: #2A9BA0;
+	background-color: var(--bd-primary);
 	color: #FFFFFF;
 }
 
@@ -180,7 +202,7 @@ p {
 	left: 0;
 	right: 0;
 	z-index: 1000;
-	background-color: rgba(255, 255, 255, 0.97);
+	background-color: var(--bd-nav-bg);
 	backdrop-filter: blur(8px);
 	-webkit-backdrop-filter: blur(8px);
 	transition: all 0.3s ease;
@@ -189,7 +211,7 @@ p {
 
 .site-header.scrolled {
 	box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-	border-bottom-color: #E2E8F0;
+	border-bottom-color: var(--bd-nav-border);
 }
 
 .header-inner {
@@ -214,7 +236,7 @@ p {
 .site-title {
 	font-size: 1.5rem;
 	font-weight: 700;
-	color: #212934;
+	color: var(--bd-nav-title);
 	letter-spacing: -0.02em;
 }
 
@@ -240,7 +262,7 @@ p {
 	padding: 8px 18px;
 	font-size: 0.95rem;
 	font-weight: 600;
-	color: #4A5568;
+	color: var(--bd-nav-text);
 	border-radius: 6px;
 	transition: all 0.2s ease;
 }
@@ -248,8 +270,8 @@ p {
 .primary-navigation .nav-menu a:hover,
 .primary-navigation .nav-menu .current-menu-item > a,
 .primary-navigation .nav-menu .current_page_item > a {
-	color: #2A9BA0;
-	background-color: rgba(42, 155, 160, 0.06);
+	color: var(--bd-nav-hover-text);
+	background-color: var(--bd-nav-hover-bg);
 }
 
 /* wp_page_menu fallback: wrapper div contains a ul */
@@ -276,15 +298,15 @@ p {
 	padding: 8px 18px;
 	font-size: 0.95rem;
 	font-weight: 600;
-	color: #4A5568;
+	color: var(--bd-nav-text);
 	border-radius: 6px;
 	transition: all 0.2s ease;
 }
 
 .primary-navigation div.nav-menu > ul a:hover,
 .primary-navigation div.nav-menu > ul .current_page_item > a {
-	color: #2A9BA0;
-	background-color: rgba(42, 155, 160, 0.06);
+	color: var(--bd-nav-hover-text);
+	background-color: var(--bd-nav-hover-bg);
 }
 
 /* wp_page_menu child pages dropdown */
@@ -361,7 +383,7 @@ p {
 	display: block;
 	width: 100%;
 	height: 2px;
-	background-color: #212934;
+	background-color: var(--bd-hamburger);
 	border-radius: 2px;
 	transition: all 0.3s ease;
 }
@@ -550,7 +572,7 @@ body {
 .service-card:hover {
 	transform: translateY(-4px);
 	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-	border-color: #2A9BA0;
+	border-color: var(--bd-primary);
 }
 
 .service-icon {
@@ -560,9 +582,9 @@ body {
 	width: 64px;
 	height: 64px;
 	margin: 0 auto 20px;
-	background: linear-gradient(135deg, rgba(42, 155, 160, 0.1), rgba(101, 188, 123, 0.1));
+	background: linear-gradient(135deg, rgba(var(--bd-primary-rgb), 0.1), rgba(var(--bd-primary-rgb), 0.04));
 	border-radius: 16px;
-	color: #2A9BA0;
+	color: var(--bd-primary);
 }
 
 .service-icon svg {
@@ -629,7 +651,7 @@ body {
 	justify-content: center;
 	width: 28px;
 	height: 28px;
-	background-color: #65BC7B;
+	background-color: var(--bd-accent);
 	color: #FFFFFF;
 	border-radius: 50%;
 	font-size: 0.85rem;
@@ -661,7 +683,7 @@ body {
 .stat-number {
 	font-size: 2.25rem;
 	font-weight: 700;
-	color: #2A9BA0;
+	color: var(--bd-primary);
 	line-height: 1;
 }
 
@@ -698,7 +720,7 @@ body {
 }
 
 .quote-icon {
-	color: #2A9BA0;
+	color: var(--bd-primary);
 	opacity: 0.2;
 	margin-bottom: 12px;
 }
@@ -723,7 +745,7 @@ body {
 	width: 44px;
 	height: 44px;
 	border-radius: 50%;
-	background: linear-gradient(135deg, #2A9BA0, #65BC7B);
+	background: linear-gradient(135deg, var(--bd-primary), var(--bd-accent));
 	color: #FFFFFF;
 	display: flex;
 	align-items: center;
@@ -754,7 +776,7 @@ body {
 
 .cta-section {
 	padding: 100px 0;
-	background: linear-gradient(135deg, #212934 0%, #2A9BA0 100%);
+	background: linear-gradient(135deg, var(--bd-cta-from) 0%, var(--bd-cta-to) 100%);
 	text-align: center;
 }
 
@@ -807,7 +829,7 @@ body {
    ========================================================================== */
 
 .page-hero {
-	background: linear-gradient(135deg, #212934 0%, #2A9BA0 100%);
+	background: linear-gradient(135deg, var(--bd-cta-from) 0%, var(--bd-cta-to) 100%);
 	padding: 60px 0;
 	text-align: center;
 }
@@ -874,7 +896,7 @@ body {
 }
 
 .post-card-meta a {
-	color: #2A9BA0;
+	color: var(--bd-primary);
 }
 
 .meta-sep {
@@ -891,7 +913,7 @@ body {
 }
 
 .post-card-title a:hover {
-	color: #2A9BA0;
+	color: var(--bd-primary);
 }
 
 .post-card-excerpt {
@@ -904,7 +926,7 @@ body {
 .read-more-link {
 	font-size: 0.9rem;
 	font-weight: 600;
-	color: #2A9BA0;
+	color: var(--bd-primary);
 	display: inline-flex;
 	align-items: center;
 	gap: 4px;
@@ -953,7 +975,7 @@ body {
 }
 
 .entry-content blockquote {
-	border-left: 4px solid #2A9BA0;
+	border-left: 4px solid var(--bd-primary);
 	padding: 16px 24px;
 	margin: 1.5em 0;
 	background: #F2F3F5;
@@ -1004,7 +1026,7 @@ body {
 }
 
 .post-tags a:hover {
-	background: #2A9BA0;
+	background: var(--bd-primary);
 	color: #FFFFFF;
 }
 
@@ -1059,7 +1081,7 @@ body {
 	color: #212934;
 	margin-bottom: 16px;
 	padding-bottom: 10px;
-	border-bottom: 2px solid #2A9BA0;
+	border-bottom: 2px solid var(--bd-primary);
 }
 
 .widget ul {
@@ -1081,7 +1103,7 @@ body {
 }
 
 .widget ul li a:hover {
-	color: #2A9BA0;
+	color: var(--bd-primary);
 }
 
 /* ==========================================================================
@@ -1136,13 +1158,13 @@ body {
 }
 
 .search-form .search-field:focus {
-	border-color: #2A9BA0;
-	box-shadow: 0 0 0 3px rgba(42, 155, 160, 0.15);
+	border-color: var(--bd-primary);
+	box-shadow: 0 0 0 3px rgba(var(--bd-primary-rgb), 0.15);
 }
 
 .search-form .search-submit {
 	padding: 10px 20px;
-	background: #2A9BA0;
+	background: var(--bd-primary);
 	color: #FFFFFF;
 	border: none;
 	border-radius: 50px;
@@ -1154,7 +1176,7 @@ body {
 }
 
 .search-form .search-submit:hover {
-	background: #1F7F84;
+	background: var(--bd-primary-dark);
 }
 
 /* ==========================================================================
@@ -1213,13 +1235,13 @@ body {
 .comment-form input:focus,
 .comment-form textarea:focus {
 	outline: none;
-	border-color: #2A9BA0;
-	box-shadow: 0 0 0 3px rgba(42, 155, 160, 0.15);
+	border-color: var(--bd-primary);
+	box-shadow: 0 0 0 3px rgba(var(--bd-primary-rgb), 0.15);
 }
 
 .comment-form .form-submit input {
 	padding: 12px 28px;
-	background: #2A9BA0;
+	background: var(--bd-primary);
 	color: #FFFFFF;
 	border: none;
 	border-radius: 50px;
@@ -1230,7 +1252,7 @@ body {
 }
 
 .comment-form .form-submit input:hover {
-	background: #1F7F84;
+	background: var(--bd-primary-dark);
 }
 
 /* ==========================================================================
@@ -1261,15 +1283,15 @@ body {
 }
 
 .pagination .page-numbers:hover {
-	background: #2A9BA0;
+	background: var(--bd-primary);
 	color: #FFFFFF;
-	border-color: #2A9BA0;
+	border-color: var(--bd-primary);
 }
 
 .pagination .page-numbers.current {
-	background: #2A9BA0;
+	background: var(--bd-primary);
 	color: #FFFFFF;
-	border-color: #2A9BA0;
+	border-color: var(--bd-primary);
 }
 
 /* ==========================================================================
@@ -1314,7 +1336,7 @@ body {
 
 .footer-col .widget-title {
 	color: #FFFFFF;
-	border-bottom-color: #2A9BA0;
+	border-bottom-color: var(--bd-primary);
 	font-size: 1rem;
 }
 
@@ -1341,7 +1363,7 @@ body {
 }
 
 .footer-contact a:hover {
-	color: #2A9BA0;
+	color: var(--bd-primary);
 }
 
 .social-links {
@@ -1363,7 +1385,7 @@ body {
 }
 
 .social-link:hover {
-	background: #2A9BA0;
+	background: var(--bd-primary);
 	color: #FFFFFF;
 }
 
@@ -1489,7 +1511,7 @@ body {
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: #FFFFFF;
+		background: var(--bd-nav-bg);
 		padding: 24px;
 		transform: translateX(100%);
 		transition: transform 0.3s ease;
@@ -1709,7 +1731,7 @@ body {
 }
 
 :focus {
-	outline: 2px solid #2A9BA0;
+	outline: 2px solid var(--bd-primary);
 	outline-offset: 2px;
 }
 
@@ -1718,7 +1740,7 @@ body {
 }
 
 :focus-visible {
-	outline: 2px solid #2A9BA0;
+	outline: 2px solid var(--bd-primary);
 	outline-offset: 2px;
 }
 
@@ -1953,7 +1975,7 @@ body {
 }
 
 .home-slider__dot.is-active {
-	background-color: #2A9BA0;
+	background-color: var(--bd-primary);
 	transform: scale(1.2);
 }
 
