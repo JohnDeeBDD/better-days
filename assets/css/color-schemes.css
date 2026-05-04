@@ -1,0 +1,107 @@
+/* ==========================================================================
+   Better Days Theme - Color Schemes
+   --------------------------------------------------------------------------
+   Each scheme overrides the CSS custom properties declared in main.css.
+   The active scheme is applied via a body class added by inc/color-schemes.php
+   (e.g. <body class="color-scheme-sunset ...">).
+   ========================================================================== */
+
+/* ----- Scheme 1: Teal Professional (default) ---------------------------- */
+body.color-scheme-teal {
+	--bd-primary:        #2A9BA0;
+	--bd-primary-dark:   #1F7F84;
+	--bd-primary-rgb:    42, 155, 160;
+	--bd-accent:         #65BC7B;
+
+	--bd-nav-bg:         rgba(255, 255, 255, 0.97);
+	--bd-nav-border:     #E2E8F0;
+	--bd-nav-text:       #4A5568;
+	--bd-nav-title:      #212934;
+	--bd-nav-hover-bg:   rgba(42, 155, 160, 0.06);
+	--bd-nav-hover-text: #2A9BA0;
+	--bd-hamburger:      #212934;
+
+	--bd-cta-from:       #212934;
+	--bd-cta-to:         #2A9BA0;
+}
+
+/* ----- Scheme 2: Sunset Coral ------------------------------------------- */
+body.color-scheme-sunset {
+	--bd-primary:        #E0594E;
+	--bd-primary-dark:   #B7372D;
+	--bd-primary-rgb:    224, 89, 78;
+	--bd-accent:         #F4B860;
+
+	--bd-nav-bg:         rgba(255, 250, 246, 0.97);
+	--bd-nav-border:     #F1DDD3;
+	--bd-nav-text:       #5A4438;
+	--bd-nav-title:      #2D1B14;
+	--bd-nav-hover-bg:   rgba(224, 89, 78, 0.08);
+	--bd-nav-hover-text: #E0594E;
+	--bd-hamburger:      #2D1B14;
+
+	--bd-cta-from:       #2D1B14;
+	--bd-cta-to:         #E0594E;
+}
+
+/* ----- Scheme 3: Royal Indigo ------------------------------------------- */
+body.color-scheme-indigo {
+	--bd-primary:        #5B4FBF;
+	--bd-primary-dark:   #3F348F;
+	--bd-primary-rgb:    91, 79, 191;
+	--bd-accent:         #C195F0;
+
+	--bd-nav-bg:         rgba(252, 250, 255, 0.97);
+	--bd-nav-border:     #E1DDF0;
+	--bd-nav-text:       #463F66;
+	--bd-nav-title:      #1A1B3A;
+	--bd-nav-hover-bg:   rgba(91, 79, 191, 0.07);
+	--bd-nav-hover-text: #5B4FBF;
+	--bd-hamburger:      #1A1B3A;
+
+	--bd-cta-from:       #1A1B3A;
+	--bd-cta-to:         #5B4FBF;
+}
+
+/* ----- Scheme 4: Forest Sage -------------------------------------------- */
+body.color-scheme-forest {
+	--bd-primary:        #4A7C59;
+	--bd-primary-dark:   #2F5D3F;
+	--bd-primary-rgb:    74, 124, 89;
+	--bd-accent:         #C4A55A;
+
+	--bd-nav-bg:         rgba(247, 250, 247, 0.97);
+	--bd-nav-border:     #D9E3DA;
+	--bd-nav-text:       #3D4F42;
+	--bd-nav-title:      #1F2A22;
+	--bd-nav-hover-bg:   rgba(74, 124, 89, 0.08);
+	--bd-nav-hover-text: #4A7C59;
+	--bd-hamburger:      #1F2A22;
+
+	--bd-cta-from:       #1F2A22;
+	--bd-cta-to:         #4A7C59;
+}
+
+/* ----- Scheme 5: Midnight Slate (dark navigation) ----------------------- */
+body.color-scheme-midnight {
+	--bd-primary:        #4A90E2;
+	--bd-primary-dark:   #2E6FBE;
+	--bd-primary-rgb:    74, 144, 226;
+	--bd-accent:         #FF6B6B;
+
+	--bd-nav-bg:         rgba(15, 20, 25, 0.95);
+	--bd-nav-border:     rgba(255, 255, 255, 0.08);
+	--bd-nav-text:       rgba(255, 255, 255, 0.78);
+	--bd-nav-title:      #FFFFFF;
+	--bd-nav-hover-bg:   rgba(74, 144, 226, 0.18);
+	--bd-nav-hover-text: #FFFFFF;
+	--bd-hamburger:      #FFFFFF;
+
+	--bd-cta-from:       #0F1419;
+	--bd-cta-to:         #2E6FBE;
+}
+
+/* Midnight scheme: the scrolled state border should also stay dark. */
+body.color-scheme-midnight .site-header.scrolled {
+	box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+}

@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'BETTER_DAYS_VERSION', '1.0.0' );
 
 require_once get_template_directory() . '/inc/front-page-defaults.php';
+require_once get_template_directory() . '/inc/color-schemes.php';
 
 /**
  * Theme setup.
@@ -65,6 +66,14 @@ function better_days_scripts() {
 		'better-days-main',
 		get_template_directory_uri() . '/assets/css/main.css',
 		array( 'better-days-fonts' ),
+		BETTER_DAYS_VERSION
+	);
+
+	// Color scheme overrides (must load after main.css to win the cascade).
+	wp_enqueue_style(
+		'better-days-color-schemes',
+		get_template_directory_uri() . '/assets/css/color-schemes.css',
+		array( 'better-days-main' ),
 		BETTER_DAYS_VERSION
 	);
 
