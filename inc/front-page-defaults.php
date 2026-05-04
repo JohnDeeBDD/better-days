@@ -85,7 +85,7 @@ function better_days_front_page_defaults() {
 			'button_text' => 'Schedule a Consultation',
 			'button_url'  => '#contact',
 			'email'       => 'trish@betterdaysforseniors.com',
-			'phone'       => '(555) 234-7788',
+			'phone'       => '(510) 499-1651',
 		),
 		'footer'       => array(
 			'text' => 'Better Days for Seniors | Senior Care Placement & Onboarding Support',
