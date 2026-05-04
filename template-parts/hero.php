@@ -32,7 +32,7 @@ if ( $hero_image ) {
 					<span class="hero-pride-stripe stripe-blue"></span>
 					<span class="hero-pride-stripe stripe-violet"></span>
 				</div>
-				<p class="hero-pride-tagline"><?php esc_html_e( 'LGBTQ+ affirming consulting and community-first support', 'better-days' ); ?></p>
+				<p class="hero-pride-tagline"><?php esc_html_e( 'Independent and Assisted Living and Memory Care Search and Advocacy', 'better-days' ); ?></p>
 				<h1 class="hero-heading"><?php echo esc_html( $heading ); ?></h1>
 				<p class="hero-text"><?php echo esc_html( $text ); ?></p>
 				<?php if ( $btn_text ) : ?>
