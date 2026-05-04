@@ -19,7 +19,7 @@ function better_days_front_page_defaults() {
 		'hero'         => array(
 			'heading'     => 'Better Days are Ahead',
 			'text'        => 'Independent and Assisted Living and memory care search and advocacy. Your family\'s next chapter deserves the right guide, let\'s explore the path forward together.',
-			'button_text' => 'Book an Inclusive Consultation',
+			'button_text' => 'Book a Free Inclusive Consultation',
 			'button_url'  => '#contact',
 			'image'       => '',
 		),
