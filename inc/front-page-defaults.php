@@ -17,8 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 function better_days_front_page_defaults() {
 	return array(
 		'hero'         => array(
-			'heading'     => 'Proudly LGBTQ+ Inclusive Consulting',
-			'text'        => 'Strategic guidance for LGBTQ+ people, couples, and organizations seeking affirming support, bold growth, and values-driven outcomes.',
+			'heading'     => 'Better Days are Ahead',
+			'text'        => 'Your family\'s next chapter deserves the right guide, let\s explore the path forward together.',
 			'button_text' => 'Book an Inclusive Consultation',
 			'button_url'  => '#contact',
 			'image'       => '',
