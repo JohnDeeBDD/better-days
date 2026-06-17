@@ -218,6 +218,13 @@ p {
 	letter-spacing: -0.02em;
 }
 
+.site-description {
+	margin: 2px 0 0;
+	font-size: 0.85rem;
+	line-height: 1.4;
+	color: #5a6675;
+}
+
 .site-branding .custom-logo {
 	max-height: 50px;
 	width: auto;

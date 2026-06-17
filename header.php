@@ -29,6 +29,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<span class="site-title"><?php bloginfo( 'name' ); ?></span>
 				</a>
 			<?php endif; ?>
+
+			<?php
+			$better_days_description = get_bloginfo( 'description', 'display' );
+			if ( $better_days_description || is_customize_preview() ) :
+				?>
+				<p class="site-description"><?php echo $better_days_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+			<?php endif; ?>
 		</div>
 
 		<button class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'better-days' ); ?>">
