@@ -223,6 +223,79 @@ p {
 	width: auto;
 }
 
+/* Text-based brand wordmark (echoes the Better Days logo: colours, sizes, mark)
+   Palette sampled from the logo:
+   - "Better" blue gradient:  #2BA8E0 -> #1184C2 -> #0E66A0
+   - "Days" amber gradient:   #F59A1E -> #EA860B -> #C77206
+   - tagline / leaf green:    #4E8035 (forest), #A6D635 (lime) */
+.brand-logo {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.55rem;
+	text-decoration: none;
+	transition: transform 0.25s ease;
+}
+
+.brand-logo:hover {
+	transform: translateY(-1px);
+}
+
+.brand-mark {
+	flex-shrink: 0;
+	height: clamp(40px, 36px + 0.8vw, 48px);
+	width: auto;
+	transition: height 0.3s ease;
+	filter: drop-shadow(0 1px 2px rgba(14, 102, 160, 0.18));
+}
+
+.site-header.scrolled .brand-mark {
+	height: 40px;
+}
+
+.brand-text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	line-height: 1;
+}
+
+.brand-name {
+	font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+	font-weight: 800;
+	font-style: italic;
+	font-size: clamp(1.5rem, 1.1rem + 1.5vw, 1.95rem);
+	line-height: 1;
+	letter-spacing: 0.005em;
+	white-space: nowrap;
+}
+
+.brand-name__primary {
+	color: #0E66A0; /* fallback where background-clip:text is unsupported */
+	background: linear-gradient(180deg, #2BA8E0 0%, #1184C2 52%, #0E66A0 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.brand-name__accent {
+	color: #D98307; /* fallback where background-clip:text is unsupported */
+	background: linear-gradient(180deg, #F59A1E 0%, #EA860B 52%, #C77206 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.brand-tagline {
+	display: block;
+	margin-top: 0.3em;
+	font-family: 'Montserrat', 'Open Sans', sans-serif;
+	font-weight: 600;
+	font-size: clamp(0.6rem, 0.5rem + 0.35vw, 0.74rem);
+	letter-spacing: 0.045em;
+	color: #4E8035;
+	white-space: nowrap;
+}
+
 /* Navigation */
 .primary-navigation .nav-menu {
 	display: flex;
@@ -1659,6 +1732,23 @@ body {
 
 	.error-code {
 		font-size: 5rem;
+	}
+
+	.brand-logo {
+		gap: 0.4rem;
+	}
+
+	.brand-mark {
+		height: 38px;
+	}
+
+	.brand-name {
+		font-size: 1.4rem;
+	}
+
+	.brand-tagline {
+		font-size: 0.56rem;
+		letter-spacing: 0.02em;
 	}
 }
 

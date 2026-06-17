@@ -52,10 +52,10 @@ add_action( 'after_setup_theme', 'better_days_setup' );
  * Enqueue styles and scripts.
  */
 function better_days_scripts() {
-	// Google Fonts - Open Sans
+	// Google Fonts - Open Sans (body), Playfair Display (brand wordmark), Montserrat (tagline)
 	wp_enqueue_style(
 		'better-days-fonts',
-		'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap',
+		'https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&display=swap',
 		array(),
 		null
 	);
@@ -90,6 +90,21 @@ function better_days_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'better_days_scripts' );
+
+/**
+ * Preconnect to Google Fonts origins so the brand fonts load faster.
+ */
+function better_days_resource_hints( $hints, $relation_type ) {
+	if ( 'preconnect' === $relation_type ) {
+		$hints[] = 'https://fonts.googleapis.com';
+		$hints[] = array(
+			'href'        => 'https://fonts.gstatic.com',
+			'crossorigin' => 'anonymous',
+		);
+	}
+	return $hints;
+}
+add_filter( 'wp_resource_hints', 'better_days_resource_hints', 10, 2 );
 
 /**
  * Register widget areas.
