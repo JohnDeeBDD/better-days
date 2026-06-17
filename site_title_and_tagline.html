@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Better Days</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yellowtail&family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+<style>
+  .bd-logo {
+    --script: 'Yellowtail', cursive;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 64px;
+    background: #fff;
+    font-family: 'Open Sans', sans-serif;
+  }
+  .bd-word {
+    display: flex;
+    align-items: baseline;
+    white-space: nowrap;
+  }
+  .bd-word span {
+    font-family: var(--script);
+    font-size: 168px;
+    line-height: .9;
+    font-weight: 400;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    padding: 0 .04em;
+  }
+  .bd-better { background-image: linear-gradient(96deg,  #5db82e 0%, #2ba0d8 26%, #1666ad 100%); }
+  .bd-days   { background-image: linear-gradient(128deg, #f6921e 0%, #ef8a22 46%, #6cbf3a 100%); margin-left: .06em; }
+  .bd-swoosh { width: 104%; height: auto; margin-top: -18px; display: block; }
+  .bd-tagline {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    font-size: 38px;
+    letter-spacing: .2px;
+    color: #2e8b1f;
+    margin-top: 14px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <div class="bd-logo">
+    <div class="bd-word">
+      <span class="bd-better">Better</span>
+      <span class="bd-days">Days</span>
+    </div>
+    <svg class="bd-swoosh" viewBox="0 0 640 50" preserveAspectRatio="none">
+      <path d="M14 36 Q 320 6 628 22" stroke="#2ba0d8" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M14 44 Q 320 18 624 14" stroke="#6cbf3a" stroke-width="5" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="bd-tagline">Senior Living Search &amp; Advocacy</div>
+  </div>
+</body>
+</html>
