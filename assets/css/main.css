@@ -208,21 +208,60 @@ p {
 }
 
 .site-title-link {
+	display: inline-block;
 	text-decoration: none;
 }
 
-.site-title {
-	font-size: 1.5rem;
-	font-weight: 700;
-	color: #212934;
-	letter-spacing: -0.02em;
+/* Hardcoded "Better Days" brand lockup (see site_title_and_tagline.html) */
+.bd-logo {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	line-height: 1;
 }
 
-.site-description {
-	margin: 2px 0 0;
-	font-size: 0.85rem;
-	line-height: 1.4;
-	color: #5a6675;
+.bd-word {
+	display: flex;
+	align-items: baseline;
+	white-space: nowrap;
+}
+
+.bd-word span {
+	font-family: 'Yellowtail', cursive;
+	font-size: 36px;
+	line-height: 0.9;
+	font-weight: 400;
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: transparent;
+	padding: 0 0.04em;
+}
+
+.bd-better {
+	background-image: linear-gradient(96deg, #5db82e 0%, #2ba0d8 26%, #1666ad 100%);
+}
+
+.bd-days {
+	background-image: linear-gradient(128deg, #f6921e 0%, #ef8a22 46%, #6cbf3a 100%);
+	margin-left: 0.06em;
+}
+
+.bd-swoosh {
+	width: 104%;
+	height: auto;
+	margin-top: -4px;
+	display: block;
+}
+
+.bd-tagline {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 800;
+	font-size: 11px;
+	letter-spacing: 0.2px;
+	color: #2e8b1f;
+	margin-top: 3px;
+	text-align: center;
 }
 
 .site-branding .custom-logo {
@@ -1666,6 +1705,14 @@ body {
 
 	.error-code {
 		font-size: 5rem;
+	}
+
+	.bd-word span {
+		font-size: 30px;
+	}
+
+	.bd-tagline {
+		font-size: 10px;
 	}
 }
 

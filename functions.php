@@ -52,10 +52,10 @@ add_action( 'after_setup_theme', 'better_days_setup' );
  * Enqueue styles and scripts.
  */
 function better_days_scripts() {
-	// Google Fonts - Open Sans
+	// Google Fonts - Open Sans (UI) + Yellowtail (brand lockup script)
 	wp_enqueue_style(
 		'better-days-fonts',
-		'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap',
+		'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Yellowtail&display=swap',
 		array(),
 		null
 	);
