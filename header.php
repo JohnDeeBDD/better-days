@@ -22,20 +22,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 <header id="site-header" class="site-header">
 	<div class="container header-inner">
 		<div class="site-branding">
-			<?php if ( has_custom_logo() ) : ?>
-				<?php the_custom_logo(); ?>
-			<?php else : ?>
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-title-link">
-					<span class="site-title"><?php bloginfo( 'name' ); ?></span>
-				</a>
-			<?php endif; ?>
-
-			<?php
-			$better_days_description = get_bloginfo( 'description', 'display' );
-			if ( $better_days_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $better_days_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-title-link bd-logo" rel="home">
+				<span class="bd-word">
+					<span class="bd-better">Better</span>
+					<span class="bd-days">Days</span>
+				</span>
+				<svg class="bd-swoosh" viewBox="0 0 640 50" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+					<path d="M14 36 Q 320 6 628 22" stroke="#2ba0d8" stroke-width="5" fill="none" stroke-linecap="round"/>
+					<path d="M14 44 Q 320 18 624 14" stroke="#6cbf3a" stroke-width="5" fill="none" stroke-linecap="round"/>
+				</svg>
+				<span class="bd-tagline">Senior Living Search &amp; Advocacy</span>
+			</a>
 		</div>
 
 		<button class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'better-days' ); ?>">
