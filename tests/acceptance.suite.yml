@@ -1,0 +1,25 @@
+actor: AcceptanceTester
+modules:
+    enabled:
+        - WPWebDriver:
+            url: http://better-days.localhost
+            browser: chrome
+            host: 127.0.0.1
+            port: 9515
+            path: /
+            adminUsername: admin
+            adminPassword: password
+            adminPath: /wp-admin
+            capabilities:
+                goog:chromeOptions:
+                    args:
+                        - "--headless=new"
+                        - "--no-sandbox"
+                        - "--disable-dev-shm-usage"
+                        - "--disable-gpu"
+                        - "--window-size=1920,1080"
+        - Asserts
+        - Db:
+            dsn: 'mysql:host=db_test;dbname=wp_better-days_test'
+            user: wp
+            password: wp

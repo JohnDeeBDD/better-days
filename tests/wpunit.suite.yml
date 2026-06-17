@@ -1,0 +1,17 @@
+actor: WpunitTester
+modules:
+    enabled:
+        - WPLoader
+        - Asserts
+    config:
+        WPLoader:
+            wpRootFolder: /var/www/html
+            dbName: wp_better-days_test
+            dbHost: db_test
+            dbUser: wp
+            dbPassword: wp
+            tablePrefix: wp_
+            domain: better-days.localhost
+            url: http://better-days.localhost
+            adminEmail: admin@example.com
+            title: better-days

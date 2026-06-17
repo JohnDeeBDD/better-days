@@ -1,0 +1,4 @@
+actor: PhpunitTester
+modules:
+    enabled:
+        - Asserts
