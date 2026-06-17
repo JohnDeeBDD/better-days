@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<?php if ( has_custom_logo() ) : ?>
 							<?php the_custom_logo(); ?>
 						<?php else : ?>
-							<span class="footer-site-title"><?php bloginfo( 'name' ); ?></span>
+							<?php better_days_brand_logo( array( 'context' => 'footer', 'show_tagline' => false ) ); ?>
 						<?php endif; ?>
 						<p class="footer-description"><?php bloginfo( 'description' ); ?></p>
 					</div>

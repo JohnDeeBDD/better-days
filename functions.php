@@ -53,10 +53,10 @@ add_action( 'after_setup_theme', 'better_days_setup' );
  * Enqueue styles and scripts.
  */
 function better_days_scripts() {
-	// Google Fonts - Open Sans
+	// Google Fonts - Open Sans (body/UI) + Pacifico (brand wordmark)
 	wp_enqueue_style(
 		'better-days-fonts',
-		'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap',
+		'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Pacifico&display=swap',
 		array(),
 		null
 	);
@@ -451,3 +451,62 @@ function better_days_excerpt_more( $more ) {
 	return '&hellip;';
 }
 add_filter( 'excerpt_more', 'better_days_excerpt_more' );
+
+/**
+ * Render the text-based brand logo.
+ *
+ * Used in the header and footer when no custom image logo has been uploaded.
+ * The site name is split into a primary word and the remainder so each can
+ * take its own colour, echoing the two-tone "Better Days" wordmark, and it is
+ * set in the Pacifico script face alongside a small blue-to-green heart/leaf
+ * mark. If a custom logo image is set, that takes precedence in the templates.
+ *
+ * @param array $args {
+ *     @type string $context      Variant slug, used for CSS + a unique SVG id (e.g. 'header', 'footer').
+ *     @type bool   $show_tagline Whether to render the site description beneath the wordmark.
+ * }
+ */
+function better_days_brand_logo( $args = array() ) {
+	$args = wp_parse_args( $args, array(
+		'context'      => 'header',
+		'show_tagline' => false,
+	) );
+
+	$name = get_bloginfo( 'name' );
+	$home = home_url( '/' );
+
+	// Split the site name into a primary word and the remainder.
+	$parts   = preg_split( '/\s+/', trim( $name ), 2 );
+	$primary = isset( $parts[0] ) ? $parts[0] : $name;
+	$accent  = isset( $parts[1] ) ? $parts[1] : '';
+
+	$context = sanitize_html_class( $args['context'] );
+	if ( '' === $context ) {
+		$context = 'header';
+	}
+	$grad_id = 'bd-heart-' . $context;
+	$tagline = get_bloginfo( 'description' );
+	?>
+	<a href="<?php echo esc_url( $home ); ?>" class="brand-logo brand-logo--<?php echo esc_attr( $context ); ?>" rel="home" aria-label="<?php echo esc_attr( $name ); ?>">
+		<span class="brand-mark" aria-hidden="true">
+			<svg viewBox="0 0 36 32" focusable="false" xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<linearGradient id="<?php echo esc_attr( $grad_id ); ?>" x1="0" y1="0" x2="1" y2="0.2">
+						<stop offset="0" stop-color="#0076C5" />
+						<stop offset="0.45" stop-color="#28A9C0" />
+						<stop offset="1" stop-color="#8DC63F" />
+					</linearGradient>
+				</defs>
+				<path d="M18 30C9 23 2 17 2 10 2 5 6 2 10 2 13.5 2 16.5 4 18 7 19.5 4 22.5 2 26 2 30 2 34 5 34 10 34 17 27 23 18 30Z" fill="url(#<?php echo esc_attr( $grad_id ); ?>)" />
+				<path d="M18 8C18.6 14 18.6 21 18 27" fill="none" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" opacity="0.4" />
+			</svg>
+		</span>
+		<span class="brand-text">
+			<span class="brand-wordmark"><span class="brand-word brand-word--primary"><?php echo esc_html( $primary ); ?></span><?php if ( '' !== $accent ) : ?><span class="brand-word brand-word--accent"><?php echo esc_html( $accent ); ?></span><?php endif; ?></span>
+			<?php if ( $args['show_tagline'] && $tagline ) : ?>
+				<span class="brand-tagline"><?php echo esc_html( $tagline ); ?></span>
+			<?php endif; ?>
+		</span>
+	</a>
+	<?php
+}

@@ -34,6 +34,16 @@
 	/* Hero & CTA gradient endpoints */
 	--bd-cta-from:       #212934;
 	--bd-cta-to:         #2A9BA0;
+
+	/* Brand wordmark (text logo shown when no image logo is uploaded) */
+	--bd-script-font:        'Pacifico', 'Brush Script MT', 'Segoe Script', cursive;
+	--bd-brand-blue-light:   #3FB0E8;
+	--bd-brand-blue:         #0782D1;
+	--bd-brand-blue-deep:    #0A66B8;
+	--bd-brand-orange-light: #FFA21F;
+	--bd-brand-orange:       #FF8A00;
+	--bd-brand-green:        #7DA017;
+	--bd-brand-tagline:      var(--bd-primary);
 }
 
 /* ---------- Reset & Base ---------- */
@@ -267,6 +277,97 @@ p {
 .site-branding .custom-logo {
 	max-height: 50px;
 	width: auto;
+}
+
+/* ---------- Brand wordmark (text logo) ---------- */
+.brand-logo {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	text-decoration: none;
+	line-height: 1;
+}
+
+.brand-mark {
+	flex-shrink: 0;
+	width: 42px;
+	height: 38px;
+	display: block;
+	transition: width 0.3s ease, height 0.3s ease;
+	filter: drop-shadow(0 1px 1px rgba(33, 41, 52, 0.12));
+}
+
+.brand-mark svg {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.brand-text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.brand-wordmark {
+	font-family: var(--bd-script-font);
+	font-size: 2rem;
+	line-height: 1.05;
+	white-space: nowrap;
+	transition: font-size 0.3s ease;
+}
+
+.brand-word {
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+	-webkit-text-fill-color: transparent;
+}
+
+.brand-word--primary {
+	background-image: linear-gradient(160deg, var(--bd-brand-blue-light) 0%, var(--bd-brand-blue) 55%, var(--bd-brand-blue-deep) 100%);
+}
+
+.brand-word--accent {
+	margin-left: 0.22em;
+	background-image: linear-gradient(95deg, var(--bd-brand-orange-light) 0%, var(--bd-brand-orange) 40%, var(--bd-brand-green) 100%);
+}
+
+/* Solid-colour fallback where background-clip: text is unsupported. */
+@supports not ((-webkit-background-clip: text) or (background-clip: text)) {
+	.brand-word--primary {
+		color: var(--bd-brand-blue);
+		-webkit-text-fill-color: currentColor;
+	}
+	.brand-word--accent {
+		color: var(--bd-brand-orange);
+		-webkit-text-fill-color: currentColor;
+	}
+}
+
+.brand-tagline {
+	font-family: 'Open Sans', -apple-system, sans-serif;
+	font-size: 0.62rem;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--bd-brand-tagline);
+	margin-top: 3px;
+	white-space: nowrap;
+}
+
+/* Shrink the wordmark to match the condensed header on scroll. */
+.site-header.scrolled .brand-wordmark {
+	font-size: 1.65rem;
+}
+
+.site-header.scrolled .brand-mark {
+	width: 34px;
+	height: 31px;
+}
+
+.site-header.scrolled .brand-tagline {
+	display: none;
 }
 
 /* Navigation */
@@ -1345,6 +1446,23 @@ body {
 	margin-bottom: 12px;
 }
 
+/* Brand wordmark in the (dark) footer: smaller, with brighter blues for contrast. */
+.brand-logo--footer {
+	margin-bottom: 12px;
+}
+
+.brand-logo--footer .brand-wordmark {
+	font-size: 1.7rem;
+}
+
+.brand-logo--footer .brand-word--primary {
+	background-image: linear-gradient(160deg, #6CC4F0 0%, #2A9DE0 100%);
+}
+
+.brand-logo--footer .brand-word--accent {
+	background-image: linear-gradient(95deg, #FFB347 0%, #FF8A00 40%, #A6C73A 100%);
+}
+
 .footer-description {
 	font-size: 0.95rem;
 	line-height: 1.7;
@@ -1522,6 +1640,24 @@ body {
 
 	.header-inner {
 		height: 70px;
+	}
+
+	/* Brand wordmark: tighten for small screens, drop the tagline. */
+	.brand-logo {
+		gap: 9px;
+	}
+
+	.brand-wordmark {
+		font-size: 1.6rem;
+	}
+
+	.brand-mark {
+		width: 34px;
+		height: 31px;
+	}
+
+	.brand-logo--header .brand-tagline {
+		display: none;
 	}
 
 	/* Mobile Navigation */

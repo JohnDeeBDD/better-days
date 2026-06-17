@@ -25,9 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php if ( has_custom_logo() ) : ?>
 				<?php the_custom_logo(); ?>
 			<?php else : ?>
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-title-link">
-					<span class="site-title"><?php bloginfo( 'name' ); ?></span>
-				</a>
+				<?php better_days_brand_logo( array( 'context' => 'header', 'show_tagline' => true ) ); ?>
 			<?php endif; ?>
 		</div>
 
